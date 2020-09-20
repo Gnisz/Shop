@@ -59,7 +59,6 @@ public class ProductController {
     public ResponseEntity<Product> editProduct(@PathVariable Long productId, @RequestBody UpdateProductDto dto){
 
         Product product = service.update(productId, dto);
-
         return  ResponseEntity.ok(product);
     }
 }
