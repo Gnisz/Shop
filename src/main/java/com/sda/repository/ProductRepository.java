@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 @Repository
 public class ProductRepository {
@@ -70,5 +71,11 @@ public class ProductRepository {
                 });
 
         return  findById(productId);
+    }
+
+    public List<Product> findAllByName(String name){
+        return productList.stream()
+                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
+                .collect(Collectors.toList());
     }
 }

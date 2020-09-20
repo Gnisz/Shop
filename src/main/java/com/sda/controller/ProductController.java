@@ -61,4 +61,12 @@ public class ProductController {
         Product product = service.update(productId, dto);
         return  ResponseEntity.ok(product);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity <List<Product>> editProduct(@RequestParam String name){
+
+        List<Product> productsFound = service.findAllByName(name);
+
+        return ResponseEntity.ok(productsFound);
+    }
 }

@@ -55,6 +55,10 @@ public class ProductService {
         return repository.update(productId,dto);
     }
 
+    public List<Product> findAllByName(String name){
+        return  repository.findAllByName(name);
+    }
+
 //    public Product update(Long productId, CreateProductDto dto) {
 //        Product product = Product.builder()
 //                .category(dto.getCategory())
